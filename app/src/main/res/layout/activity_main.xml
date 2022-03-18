@@ -1,0 +1,239 @@
+<!--
+   Copyright 2021 Google LLC
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.google.ar.core.examples.kotlin.helloar.HelloArActivity">
+
+  <TextView
+      android:id="@+id/textTracking"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="48dp"
+      android:layout_marginTop="92dp"
+      android:layout_marginEnd="80dp"
+      android:text="@string/tracking_state"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      app:layout_constraintEnd_toStartOf="@+id/surfaceview"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <android.opengl.GLSurfaceView
+      android:id="@+id/surfaceview"
+      android:layout_width="150dp"
+      android:layout_height="200dp"
+      android:layout_gravity="top"
+      android:layout_marginTop="4dp"
+      android:layout_marginEnd="32dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.appcompat.widget.SwitchCompat
+      android:id="@+id/video_switch"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:checked="false"
+      android:minHeight="48dp"
+      android:text="@string/show_camera_view"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/surfaceview" />
+
+  <androidx.appcompat.widget.SwitchCompat
+      android:id="@+id/debug_switch"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:checked="false"
+      android:minHeight="48dp"
+      android:text="@string/show_debug_information"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/video_switch" />
+
+  <TableLayout
+      android:id="@+id/TableLayout1"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:stretchColumns="*"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/debug_switch">
+
+    <TableRow>
+
+      <TextView
+          android:id="@+id/header_x"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/x" />
+      <TextView
+          android:id="@+id/header_y"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/y" />
+      <TextView
+          android:id="@+id/header_z"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/z" />
+
+      <TextView
+          android:id="@+id/header_roll"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/roll" />
+
+      <TextView
+          android:id="@+id/header_pitch"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/pitch" />
+
+      <TextView
+          android:id="@+id/header_yaw"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/yaw" />
+    </TableRow>
+
+    <TableRow>
+      <TextView
+          android:id="@+id/value_x"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          tools:text="X" />
+      <TextView
+          android:id="@+id/value_y"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          tools:text="Y" />
+      <TextView
+          android:id="@+id/value_z"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          tools:text="Z" />
+      <TextView
+          android:id="@+id/value_roll"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          tools:text="Roll" />
+      <TextView
+          android:id="@+id/value_pitch"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          tools:text="Pitch" />
+      <TextView
+          android:id="@+id/value_yaw"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          tools:text="Yaw" />
+    </TableRow>
+  </TableLayout>
+
+
+  <TableLayout
+      android:id="@+id/TableLayout2"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:stretchColumns="*"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/TableLayout1">
+
+    <TableRow>
+      <TextView
+          android:id="@+id/ip_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/ip_address"
+          android:labelFor="@id/ip_input"/>
+
+      <EditText
+          android:id="@+id/ip_input"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:autofillHints="ip"
+          android:inputType="text"
+          android:minHeight="48dp"
+          tools:text="192.168.1.10" />
+    </TableRow>
+    <TableRow>
+      <TextView
+          android:id="@+id/port_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/port"
+          android:labelFor="@id/port_input"/>
+
+      <EditText
+          android:id="@+id/port_input"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:autofillHints="port"
+          android:inputType="number"
+          android:minHeight="48dp"
+          tools:text="4242" />
+    </TableRow>
+
+  </TableLayout>
+
+  <androidx.appcompat.widget.SwitchCompat
+      android:id="@+id/udp_switch"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:checked="false"
+      android:minHeight="48dp"
+      android:text="@string/enable_udp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/TableLayout2" />
+
+  <Button
+      android:id="@+id/button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="32dp"
+      android:minWidth="48dp"
+      android:text="@string/save_configuration"
+      app:layout_constraintTop_toBottomOf="@id/udp_switch"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <TextView
+      android:id="@+id/copyright"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="0dp"
+      android:text="@string/copyright"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

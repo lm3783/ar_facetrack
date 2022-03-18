@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2021 Google LLC
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<resources>
+  <string translatable="false" name="app_name">AR Face Track</string>
+
+    <string name="show_camera_view">显示相机预览</string>
+  <string name="show_debug_information">显示调试信息</string>
+  <string name="x">X轴</string>
+  <string name="y">Y轴</string>
+  <string name="z">Z轴</string>
+  <string name="roll">滚转</string>
+  <string name="pitch">俯仰</string>
+  <string name="yaw">偏航</string>
+  <string name="enable_udp">启用</string>
+  <string name="ip_address">PC端IP地址</string>
+  <string name="port">PC端端口</string>
+    <string name="save_configuration">保存配置信息</string>
+    <string name="tracking_state">跟踪状态</string>
+    <string name="searching">搜索</string>
+    <string name="copyright">This application runs on Google Play Services for AR (ARCore), which is provided by Google LLC and governed by the Google Privacy Policy.</string>
+
+</resources>
